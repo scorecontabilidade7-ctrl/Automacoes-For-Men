@@ -182,7 +182,7 @@ def ler_excel(conteudo):
     colunas = [
         "Venda",
         "Descrição",
-        "Qtd Vendida",
+        "Qtd.Vendida",
         "Valor unitário",
         "SubTotal",
         "Custo",
@@ -201,7 +201,7 @@ def ler_excel(conteudo):
 
     df = df.rename(columns={
         "Venda": "Cod Venda",
-        "Qtd Vendida": "Quant Vendida",
+        "Qtd.Vendida": "Quant Vendida",
         "Valor unitário": "Valor Unitário",
         "SubTotal": "Total"
     })
