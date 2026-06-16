@@ -454,10 +454,7 @@ def relatorio_vendas(page, session, config, folder):
     # Botão principal do SplitButton: Exportar Xlsx.
     # Não usar o botão da setinha, que normalmente termina com "_button".
     botao_exportar_xlsx = first_visible(page, [
-        '#frmVenda\\:j_idt171',
-        'xpath=//form[contains(@id,"frmVenda")]//button[not(contains(@id,"_button")) and .//span[normalize-space()="Exportar Xlsx"]]',
-        'xpath=//form[contains(@id,"frmVenda")]//button[not(contains(@class,"ui-splitbutton-menubutton")) and .//span[contains(normalize-space(.),"Exportar Xlsx")]]',
-        'xpath=//form[contains(@id,"frmVenda")]//*[normalize-space()="Exportar Xlsx"]/ancestor::button[not(contains(@id,"_button"))][1]'
+        'xpath=//button[.//span[normalize-space()="Exportar Xlsx"] and not(contains(@class, "ui-splitbutton-menubutton"))]'
     ])
 
     botao_exportar_xlsx.wait_for(state="visible", timeout=30000)
@@ -592,7 +589,7 @@ def relatorio_estoque(page, session, config, folder):
 
     safe_click(custo)
 
-    button = page.locator('xpath=//*[@id="frmTitulo:j_idt138"]')
+    button = page.locator('xpath=//button[.//span[normalize-space()="Exportar"]]')
     button.wait_for(state="visible", timeout=30000)
 
     print("[RELATÓRIO] Baixando Relatório de Custo Estoque")
